@@ -18,6 +18,10 @@ export const assets = {
     fontSize: 20,
     fontWeight: '500',
   },
+  h6: {
+    fontSize: 18,
+    fontWeight: '500',
+  },
 };
 
 export const spacing = [

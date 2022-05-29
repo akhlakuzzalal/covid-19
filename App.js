@@ -1,7 +1,12 @@
 import { AntDesign, Feather, Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { Image, Pressable, SafeAreaView, StyleSheet, View } from 'react-native';
+import distance from './assets/images/distance.png';
+import mask from './assets/images/mask.png';
+import safty from './assets/images/safty.png';
 import usa from './assets/images/usa.png';
+import wash from './assets/images/wash.png';
 import { spacing } from './src/theme/assets';
 import { colors } from './src/theme/colors';
 import Text from './src/theme/text';
@@ -77,6 +82,41 @@ export default function App() {
           </Pressable>
         </View>
       </View>
+      {/* prevention */}
+      <View style={{ paddingHorizontal: spacing[6], marginTop: spacing[8] }}>
+        <Text preset="h5">Prevention</Text>
+        {/* duties */}
+        <View style={styles.duty}>
+          <View style={styles.duties}>
+            <Image source={distance} />
+            <Text style={{ textAlign: 'center', marginTop: spacing[3] }}>
+              Avoid close contact
+            </Text>
+          </View>
+          <View style={styles.duties}>
+            <Image source={wash} />
+            <Text style={{ textAlign: 'center', marginTop: spacing[3] }}>
+              Clean your hands often
+            </Text>
+          </View>
+          <View style={styles.duties}>
+            <Image source={mask} />
+            <Text style={{ textAlign: 'center', marginTop: spacing[3] }}>
+              Wear a facemask
+            </Text>
+          </View>
+        </View>
+        {/* safty */}
+        <LinearGradient colors={['#AEA1E5', '#AEA1E5']} style={styles.safty}>
+          <Image source={safty} />
+          <View style={{ width: '60%', marginLeft: spacing[3] }}>
+            <Text preset="h6">Do your own test!</Text>
+            <Text style={{ marginTop: spacing[2] }}>
+              Follow the instructions to do your own test.
+            </Text>
+          </View>
+        </LinearGradient>
+      </View>
       <StatusBar style="light" />
     </SafeAreaView>
   );
@@ -140,5 +180,25 @@ const styles = StyleSheet.create({
     paddingVertical: spacing[2],
     backgroundColor: colors.blue,
     borderRadius: spacing[5],
+  },
+  duty: {
+    marginVertical: spacing[6],
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  duties: {
+    alignItems: 'center',
+    width: '33%',
+    justifyContent: 'center',
+  },
+  safty: {
+    padding: spacing[3],
+    borderRadius: spacing[4],
+    flexDirection: 'row',
+    marginVertical: spacing[4],
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });
